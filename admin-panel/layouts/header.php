@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+define("ADMINURL", "http://localhost/wooxtravel/admin-panel");
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +17,7 @@
     <title>Admin Panel</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-     <link href="styles/style.css" rel="stylesheet">
+     <link href="<?php echo ADMINURL; ?>/styles/style.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
@@ -21,6 +32,8 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarText">
+
+        <?php if(isset($_SESSION['adminname'])) : ?>
         <ul class="navbar-nav side-nav" >
           <li class="nav-item">
             <a class="nav-link" style="margin-left: 20px;" href="index.html">Home
@@ -40,107 +53,33 @@
             <a class="nav-link" href="bookings-admins/show-bookings.html" style="margin-left: 20px;">Bookings</a>
           </li>
         </ul>
+        <?php endif ;?>
+
         <ul class="navbar-nav ml-md-auto d-md-flex">
+       <?php if(!isset($_SESSION['adminname'])) : ?>
+           <li class="nav-item">
+               <a class="nav-link" href="<?php echo ADMINURL; ?>/admins/login-admins.php">login </a>
+            </li>
+          <?php else : ?>
+
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home
+            <a class="nav-link" href="<?php echo ADMINURL; ?>">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admins/login-admins.html">login
-            </a>
-          </li>
+      
           <li class="nav-item dropdown">
             <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              username
+             <?php echo $_SESSION['adminname']; ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="<?php echo ADMINURL; ?>/admins/logout.php">Logout</a>
               
           </li>
-                          
+        <?php endif ;?>            
           
         </ul>
       </div>
     </div>
     </nav>
     <div class="container-fluid">
-            
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Countries</h5>
-              <!-- <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6> -->
-              <p class="card-text">number of countries: 8</p>
-             
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Cities</h5>
-              
-              <p class="card-text">number of cities: 4</p>
-              
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Admins</h5>
-              
-              <p class="card-text">number of admins: 3</p>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-     <!--  <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<script type="text/javascript">
-
-</script>
-</body>
-</html>
