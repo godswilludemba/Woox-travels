@@ -1,10 +1,29 @@
-<?php require"layouts/header.php"; ?>
+<?php require "layouts/header.php"; ?>
+<?php require "../config/config.php"; ?>
 
 <?php
 
 if(!isset($_SESSION['adminname'])){
   header("location: ".ADMINURL."/admins/login-admins.php");
 } 
+
+$countries = $conn->query("SELECT COUNT(*) AS countries_count FROM countries");
+$countries->execute();
+$allCountries = $countries->fetch(PDO::FETCH_OBJ);
+
+$cities = $conn->query("SELECT COUNT(*) AS cities_count FROM cities");
+$cities->execute();
+$allCities = $cities->fetch(PDO::FETCH_OBJ);
+
+$admin = $conn->query("SELECT COUNT(*) AS admin_count FROM admin");
+$admin->execute();
+$allAdmin = $admin->fetch(PDO::FETCH_OBJ);
+
+
+$bookings = $conn->query("SELECT COUNT(*) AS bookings_count FROM bookings");
+$bookings->execute();
+$allBookings = $bookings->fetch(PDO::FETCH_OBJ);
+
 ?>
 
 <div class="row">
@@ -13,7 +32,7 @@ if(!isset($_SESSION['adminname'])){
       <div class="card-body">
         <h5 class="card-title">Countries</h5>
         <!-- <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6> -->
-        <p class="card-text">number of countries: 8</p>
+        <p class="card-text">number of countries: <?php echo $allCountries->countries_count; ?></p>
       </div>
     </div>
   </div>
@@ -22,7 +41,7 @@ if(!isset($_SESSION['adminname'])){
       <div class="card-body">
         <h5 class="card-title">Cities</h5>
 
-        <p class="card-text">number of cities: 4</p>
+        <p class="card-text">number of cities: <?php echo $allCities->cities_count; ?></p>
       </div>
     </div>
   </div>
@@ -31,7 +50,17 @@ if(!isset($_SESSION['adminname'])){
       <div class="card-body">
         <h5 class="card-title">Admins</h5>
 
-        <p class="card-text">number of admins: 3</p>
+        <p class="card-text">number of admins: <?php echo $allAdmin->admin_count; ?></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bookings</h5>
+
+        <p class="card-text">number of Bookings: <?php echo $allBookings->bookings_count; ?></p>
       </div>
     </div>
   </div>
