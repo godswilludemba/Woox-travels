@@ -36,12 +36,12 @@ define("ADMINURL", "http://localhost/wooxtravel/admin-panel");
         <?php if(isset($_SESSION['adminname'])) : ?>
         <ul class="navbar-nav side-nav" >
           <li class="nav-item">
-            <a class="nav-link" style="margin-left: 20px;" href="index.html">Home
+            <a class="nav-link" style="margin-left: 20px;" href="<?php echo ADMINURL; ?>">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
+            <a class="nav-link" href="<?php echo ADMINURL; ?>/admins/admins.php" style="margin-left: 20px;">Admins</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="countries-admins/show-country.html" style="margin-left: 20px;">Countries</a>
