@@ -36,7 +36,7 @@ define("ADMINURL", "http://localhost/wooxtravel/admin-panel");
         <?php if(isset($_SESSION['adminname'])) : ?>
         <ul class="navbar-nav side-nav" >
           <li class="nav-item">
-            <a class="nav-link" style="margin-left: 20px;" href="<?php echo ADMINURL; ?>">Home
+            <a class="nav-link" style="margin-left: 20px;"href="<?php echo ADMINURL; ?>">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -70,7 +70,7 @@ define("ADMINURL", "http://localhost/wooxtravel/admin-panel");
       
           <li class="nav-item dropdown">
             <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <?php echo $_SESSION['adminname']; ?>
+             <?php echo $_SESSION['adminname'] ; ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo ADMINURL; ?>/admins/logout.php">Logout</a>

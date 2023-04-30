@@ -25,7 +25,7 @@ header("location: 404.php");
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          <table class="table" style="margin-top:150px; margin-bottom:100px">
+          <table class="table" style="margin-top:150px; margin-bottom:190px">
            <thead>
              <tr>
                <th scope="col">Name</th>
@@ -46,7 +46,7 @@ header("location: 404.php");
                <td><?php echo $Bookings->checkin_date; ?></td>
                <td><?php echo $Bookings->destination; ?></td>
                <td><?php echo $Bookings->status; ?></td>
-               <td><?php echo $Bookings->payment; ?></td>
+               <td>$ <?php echo $Bookings->payment; ?></td>
              </tr>
             <?php endforeach; ?>
            </tbody>

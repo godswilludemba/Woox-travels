@@ -3,7 +3,10 @@
 
 <?php
 
-  if(isset($_POST['submit'])) {
+ // if(isset($_POST['submit']))
+  //At this point, we comfirm if the request is posting else we return back to the index.php header
+  if($_SERVER['REQUEST_METHOD'] == ("POST")) 
+  {
     if(empty($_POST['country_id']) OR empty($_POST['price'])) {
     echo "<script> alert ('some inputs are empty'); </script>" ;
     } else {
@@ -19,6 +22,8 @@ $allSearchs = $searchs->fetchAll(PDO::FETCH_OBJ);
 
 
     }
+} else {
+  header("location: index.php");
 }
 ?>
  
@@ -70,9 +75,14 @@ $allSearchs = $searchs->fetchAll(PDO::FETCH_OBJ);
                     </div>
                   </div>
                   <p>Limited Price: $<?php echo $searchs->price; ?> Per person</p>
+
+                  <?php if(isset($_SESSION['username'])) : ?>
                   <div class="main-button">
                     <a href="reservation.php?id=<?php echo $searchs->id; ?>">Make a Reservation</a>
                   </div>
+                  <?php else : ?>
+                    <p >Login to Make a Reservation</p>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>

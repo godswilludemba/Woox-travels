@@ -3,12 +3,12 @@
 
 <?php
 
-if(!isset($_SESSION['adminname'])){
-  header("location: ".ADMINURL."");
-  }
+     if(!isset($_SESSION['adminname'])){
+        header("location: ".ADMINURL."");
+     }
 
 //get the id and status
-if(isset($_GET['id']) AND isset($_GET['status'])){
+  if(isset($_GET['id']) AND isset($_GET['status'])){
 
  //grab the situations 
   $id = $_GET['id'];

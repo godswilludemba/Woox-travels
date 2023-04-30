@@ -104,9 +104,14 @@ $allCountries = $countries->fetchAll(PDO::FETCH_OBJ);
                     </div>
                   </div>
                   <p>Limited Price: $<?php echo $city->price; ?> Per person</p>
+
+                  <?php if(isset($_SESSION['username'])) : ?>
                   <div class="main-button">
                     <a href="reservation.php?id=<?php echo $city->id; ?>">Make a Reservation</a>
                   </div>
+                  <?php else : ?>
+                    <p >Login to Make a Reservation</p>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
