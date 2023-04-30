@@ -3,6 +3,12 @@
 
 <?php
 
+
+if(!isset($_SESSION['adminname'])){
+  header("location: ".ADMINURL."");
+}
+
+
 if(isset($_POST['submit'])) {
        if(empty($_POST['name']) OR empty($_POST['continent']) OR empty($_POST['population']) 
        OR empty($_POST['territory']) OR empty($_POST['description'])) {

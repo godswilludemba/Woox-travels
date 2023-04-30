@@ -3,6 +3,12 @@
 
 <?php
 
+
+if(!isset($_SESSION['adminname'])){
+  header("location: ".ADMINURL."");
+}
+
+
     $countries = $conn->query("SELECT * FROM countries");
       $countries->execute();
         $allCountries = $countries->fetchAll(PDO::FETCH_OBJ);

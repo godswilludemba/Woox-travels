@@ -3,6 +3,12 @@
 
 <?php
 
+  
+if(!isset($_SESSION['adminname'])){
+  header("location: ".ADMINURL."");
+}
+
+
 $admin = $conn->query("SELECT * FROM admin");
 $admin->execute();
 $allAdmin = $admin->fetchAll(PDO::FETCH_OBJ);

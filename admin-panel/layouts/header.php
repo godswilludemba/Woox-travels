@@ -47,10 +47,10 @@ define("ADMINURL", "http://localhost/wooxtravel/admin-panel");
             <a class="nav-link" href="<?php echo ADMINURL; ?>/countries-admins/show-country.php" style="margin-left: 20px;">Countries</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cities-admins/show-cities.html" style="margin-left: 20px;">Cities</a>
+            <a class="nav-link" href="<?php echo ADMINURL; ?>/cities-admins/show-cities.php" style="margin-left: 20px;">Cities</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="bookings-admins/show-bookings.html" style="margin-left: 20px;">Bookings</a>
+            <a class="nav-link" href="<?php echo ADMINURL; ?>/bookings-admins/show-bookings.php" style="margin-left: 20px;">Bookings</a>
           </li>
         </ul>
         <?php endif ;?>

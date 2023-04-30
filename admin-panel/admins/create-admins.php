@@ -3,9 +3,9 @@
 
 <?php
 
-// if(isset($_SESSION['username'])){
-//   header("location: ".APPURL."");
-// }
+if(!isset($_SESSION['adminname'])){
+  header("location: ".ADMINURL."");
+}
 
    if(isset($_POST['submit'])) {
        if(empty($_POST['adminname']) OR empty($_POST['email']) OR empty($_POST['password'])) {
