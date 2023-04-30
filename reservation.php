@@ -29,7 +29,7 @@ if(isset($_GET['id'])) {
               $num_of_guests = $_POST['num_of_guests'];
               $checkin_date = $_POST['checkin_date'];
               $destination = $_POST['destination'];
-              $status = "pending"; 
+              $status = "Pending"; 
               $city_id = $id; 
               $user_id = $_SESSION['user_id'];
              

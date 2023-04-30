@@ -28,11 +28,11 @@
                     <th scope="col">ID</th>
                     <th scope="col">name</th>
                     <th scope="col">phone_number</th>
-                    <th scope="col">num_of_geusts</th>
+                    <th scope="col">num_of_guests</th>
                     <th scope="col">checkin_date</th>
                     <th scope="col">destination</th>
-                    <th scope="col">status</th>
                     <th scope="col">payment</th>
+                    <th scope="col">status</th>
                     <th scope="col">delete</th>
                   </tr>
                 </thead>
@@ -46,8 +46,14 @@
                     <td><?php echo $booking->num_of_guests; ?></td>
                     <td><?php echo $booking->checkin_date; ?></td>
                     <td><?php echo $booking->destination; ?></td>
-                    <td><?php echo $booking->status; ?></td>
+                    <!-- <td><?php echo $booking->status; ?></td> -->
                     <td>$<?php echo $booking->payment; ?></td>
+                 <?php if($booking->status == "Pending") : ?>
+                      <td><a href="status.php?id=<?php echo $booking->id; ?>&status=<?php echo $booking->status; ?>" class="btn btn-primary  text-center ">Pending</a></td>
+                 <?php else: ?>
+                      <td><a href="status.php?id=<?php echo $booking->id; ?>&status=<?php echo $booking->status; ?>" class="btn btn-success  text-center ">Booked Successfully</a></td>
+                 <?php endif; ?>
+
                      <td><a href="delete-bookings.php?id=<?php echo $booking->id; ?>" class="btn btn-danger  text-center ">delete</a></td>
                   </tr>
                  <?php endforeach; ?>

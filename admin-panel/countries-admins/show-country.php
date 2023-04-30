@@ -27,7 +27,7 @@ if(!isset($_SESSION['adminname'])){
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">name</th>
                     <th scope="col">continent</th>
                     <th scope="col">population</th>

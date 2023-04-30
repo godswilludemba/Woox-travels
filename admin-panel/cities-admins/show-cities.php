@@ -27,7 +27,7 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">name</th>
                     <th scope="col">image</th>
                     <th scope="col">trip_days</th>
